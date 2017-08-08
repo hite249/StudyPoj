@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.testproj.board01.service.impl.BoardServiceMapper">
+	
+	<select id="getResult" resultType="string">
+		SELECT SUBJECT FROM BOARD WHERE NO = '1'
+	</select>
+	
+	<select id="getListResult" resultType="boardVO">
+		SELECT * FROM BOARD
+	</select>
+</mapper>

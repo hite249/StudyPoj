@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.testproj.main.service.impl.MainMapper">
+
+	<select id="getTotalCount" resultType="int">
+		SELECT COUNT(*) FROM BOARD
+	</select>
+
+	<select id="getResult" resultType="string">
+		SELECT SUBJECT FROM BOARD WHERE NO = '1'
+	</select>
+	
+	<select id="getListResult" parameterType="int" resultType="mainVO">
+		SELECT
+			*
+		FROM (
+			SELECT
+				ROWNUM RN,
+				SEQ,
+				SUBJECT,
+				CONTENT
+			FROM BOARD
+ 		)
+ 		WHERE RN BETWEEN (#{page}-1)*10+1 AND #{page}*10
+	</select>
+</mapper>
